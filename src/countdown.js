@@ -1,9 +1,4 @@
-// countdown.js
 function countdownTimer(startTime, interval) {
-  if (typeof startTime !== 'number' || typeof interval !== 'number' || startTime < 0 || interval <= 0) {
-    throw new Error('Invalid input: startTime and interval must be positive numbers.');
-  }
-
   let remainingTime = startTime;
 
   const timerId = setInterval(() => {
@@ -18,3 +13,5 @@ function countdownTimer(startTime, interval) {
 
   return timerId;
 }
+
+module.exports = countdownTimer;
