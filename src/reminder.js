@@ -1,17 +1,13 @@
-/**
- * Function: delayedReminder
- * Description: Logs a reminder message after a specified delay.
- *
- * Steps:
- * 1. Accept two parameters: `message` (string) and `delay` (in milliseconds).
- * 2. Use `setTimeout` to log the message after the specified delay.
- * 3. Return a promise that resolves once the message is logged.
- *
- * Example Usage:
- * delayedReminder("Time to stretch!", 3000).then(() => console.log("Reminder done."));
- */
+// reminder.js
 function delayedReminder(message, delay) {
-  // Return a promise
-  // Use setTimeout to log the message after the specified delay
-  // Resolve the promise once the message is logged
+  if (typeof message !== 'string' || typeof delay !== 'number' || delay < 0) {
+    return Promise.reject(new Error('Invalid input: message must be a string and delay must be a non-negative number.'));
+  }
+
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log(message);
+      resolve();
+    }, delay);
+  });
 }
